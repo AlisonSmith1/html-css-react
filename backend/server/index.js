@@ -34,8 +34,7 @@ app.use(
 // 放在所有 API 路由之後
 app.use(express.static(path.join(__dirname, "../../frontend/build")));
 
-// 用命名通配，合法不會錯
-app.get("/*path", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../../frontend/build/index.html"));
 });
 
