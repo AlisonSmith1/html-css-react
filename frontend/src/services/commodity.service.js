@@ -1,6 +1,8 @@
 import axios from "axios";
-const API_URL = "http://localhost:3000/api/commodities";
-
+const API_URL =
+  "https://html-css-react-production.up.railway.app/api/commodities";
+// https://html-css-react-production.up.railway.app/
+// http://localhost:3000
 class CommodityService {
   post(title, description, price) {
     let token;
