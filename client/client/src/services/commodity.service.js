@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://secondhandclothesserve.onrender.com/api/commodity";
+const API_URL = "locaklhost:8080/api/commodities";
 
 class CommodityService {
   post(title, description, price) {

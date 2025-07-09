@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://secondhandclothesserve.onrender.com/api/user";
+const API_URL = "locaklhost:8080/api/auth";
 
 class AuthService {
   login(email, password) {
