@@ -22,14 +22,14 @@ class CommodityService {
   }
 
   //使用買家id，找到買家購買的商品
-  getEnrolledCommodity(_id) {
+  getEnrolledCommodity(id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.get(API_URL + "/customers/" + _id, {
+    return axios.get(API_URL + "/customers/" + id, {
       headers: {
         Authorization: token,
       },
@@ -37,14 +37,14 @@ class CommodityService {
   }
 
   //使用商家id，找到商家擁有的商品
-  get(_id) {
+  get(id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.get(API_URL + "/businesss/" + _id, {
+    return axios.get(API_URL + "/businesss/" + id, {
       headers: {
         Authorization: token,
       },
@@ -63,7 +63,7 @@ class CommodityService {
     });
   }
 
-  enroll(_id) {
+  enroll(id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
@@ -71,7 +71,7 @@ class CommodityService {
       token = "";
     }
     return axios.post(
-      API_URL + "/enroll/" + _id,
+      API_URL + "/enroll/" + id,
       {},
       { headers: { Authorization: token } }
     );
