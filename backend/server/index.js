@@ -31,11 +31,14 @@ app.use(
   commodityRoute
 );
 
-app.use(express.static(path.join(__dirname, "../../frontend/build")));
+// 放在所有 API 路由之後
+app.use(express.static(path.join(__dirname, "../../frontend/client/build")));
 
-// 用正則 /.*/ 來攔截所有 GET 請求
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../../frontend/build/index.html"));
+// 用命名通配，合法不會錯
+app.get("/*path", (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, "../../frontend/client/build/index.html")
+  );
 });
 
 // 正確載入

@@ -1,6 +1,8 @@
 import axios from "axios";
-const API_URL = "https://secondhandclothesserve.onrender.com/api/commodity";
-
+const API_URL =
+  "https://html-css-react-production.up.railway.app/api/commodity";
+// https://html-css-react-production.up.railway.app/
+// http://localhost:3000
 class CommodityService {
   post(title, description, price) {
     let token;
