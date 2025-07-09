@@ -31,11 +31,11 @@ app.use(
   commodityRoute
 );
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, "../../frontend/build")));
 
 // 用正則 /.*/ 來攔截所有 GET 請求
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "../../frontend/build/index.html"));
 });
 
 // 正確載入
