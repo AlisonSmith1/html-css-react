@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://secondhandclothesserve.onrender.com/api/user";
+const API_URL = "https://html-css-react-production.up.railway.app/api/user";
 
 class AuthService {
   login(email, password) {
