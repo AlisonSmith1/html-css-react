@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const registerValidation = require("../validation.js").registerValidation;
 const loginValidation = require("../validation.js").loginValidation;
-const User = require("../models").user;
+const User = require("../models/index.js").user;
 const jwt = require("jsonwebtoken");
 
 router.use((req, res, next) => {
