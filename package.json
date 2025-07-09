@@ -2,10 +2,6 @@
   "name": "my-project",
   "private": true,
   "version": "1.0.0",
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "scripts": {
     "start": "node backend/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
