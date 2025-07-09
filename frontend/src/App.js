@@ -30,7 +30,7 @@ function App() {
           <Route index element={<HomeComponent />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route
-            path="login"
+            path="/login"
             element={
               <LoginComponent
                 currentUser={currentUser}
@@ -39,7 +39,7 @@ function App() {
             }
           />
           <Route
-            path="profile"
+            path="/profile"
             element={
               <ProfileComponent
                 currentUser={currentUser}
@@ -48,7 +48,7 @@ function App() {
             }
           />
           <Route
-            path="commodity"
+            path="/commodity"
             element={
               <CommodityComponent
                 currentUser={currentUser}
@@ -57,7 +57,7 @@ function App() {
             }
           />
           <Route
-            path="postCommodity"
+            path="/postCommodity"
             element={
               <PostComponent
                 currentUser={currentUser}
@@ -66,7 +66,7 @@ function App() {
             }
           />
           <Route
-            path="enroll"
+            path="/enroll"
             element={
               <EnrollComponent
                 currentUser={currentUser}
@@ -74,7 +74,7 @@ function App() {
               />
             }
           />
-          <Route path="homePage" element={<HomePageComponent />} />
+          <Route path="/homePage" element={<HomePageComponent />} />
           <Route
             path="/commodity/:id"
             element={
@@ -85,7 +85,7 @@ function App() {
             }
           />
           <Route
-            path="edit"
+            path="/edit"
             element={
               <EditComponent
                 currentUser={currentUser}
@@ -94,7 +94,7 @@ function App() {
             }
           />
           <Route
-            path="edit/:id"
+            path="/edit/:id"
             element={
               <EditDetailComponent
                 currentUser={currentUser}
@@ -103,7 +103,7 @@ function App() {
             }
           />
           <Route
-            path="update/:id"
+            path="/update/:id"
             element={
               <UpdateCommodityComponent
                 currentUser={currentUser}
