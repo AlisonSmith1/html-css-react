@@ -1,6 +1,5 @@
 import axios from "axios";
 const API_URL = "https://html-css-react-production.up.railway.app/api/auth";
-
 class AuthService {
   login(email, password) {
     return axios.post(API_URL + "/login", { email, password });
