@@ -1,7 +1,6 @@
 import axios from "axios";
-const API_URL = "https://html-css-react-production.up.railway.app/api/user";
-// https://html-css-react-production.up.railway.app/
-// http://localhost:3000
+const API_URL = "https://secondhandclothesserve.onrender.com/api/user";
+
 class AuthService {
   login(email, password) {
     return axios.post(API_URL + "/login", { email, password });
