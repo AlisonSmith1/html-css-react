@@ -1,0 +1,24 @@
+{
+  "name": "my-project",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start": "node interview/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlisonSmith1/html-css-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlisonSmith1/html-css-react/issues"
+  },
+  "homepage": "https://github.com/AlisonSmith1/html-css-react#readme"
+}
