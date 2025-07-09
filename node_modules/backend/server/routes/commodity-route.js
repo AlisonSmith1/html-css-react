@@ -20,6 +20,32 @@ router.get("/", async (req, res) => {
   }
 });
 
+//新增商品
+router.post("/", async (req, res) => {
+  //驗證數據符合規範
+  const { error } = commodityValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  if (req.user.isCustomer()) {
+    return res.status(400).send("客戶無法新增商品");
+  }
+
+  let { title, description, price } = req.body;
+  try {
+    let newCommodity = new Commodity({
+      title,
+      description,
+      price,
+      business: req.user._id,
+    });
+    let savedCommodity = await newCommodity.save();
+    // 將商品ID加入商家的商品列表中
+    return res.send({ message: "新商品已經保存", savedCommodity });
+  } catch (e) {
+    res.status(500).send("無法創建商品");
+  }
+});
+
 //用商家id搜尋商品
 router.get("/businesss/:_busniess_id", async (req, res) => {
   let { _busniess_id } = req.params;
@@ -52,45 +78,6 @@ router.get("/findByName/:name", async (req, res) => {
     return res.send(commodityFound);
   } catch (e) {
     return res.status(500).send(e);
-  }
-});
-
-//用商品id搜尋商品
-router.get("/:_id", async (req, res) => {
-  let { _id } = req.params;
-  try {
-    let commodityFound = await Commodity.findOne({ _id })
-      .populate("business", ["email"])
-      .exec();
-    return res.send(commodityFound);
-  } catch (e) {
-    return res.status(500).send(e);
-  }
-});
-
-//新增商品
-router.post("/", async (req, res) => {
-  //驗證數據符合規範
-  const { error } = commodityValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  if (req.user.isCustomer()) {
-    return res.status(400).send("客戶無法新增商品");
-  }
-
-  let { title, description, price } = req.body;
-  try {
-    let newCommodity = new Commodity({
-      title,
-      description,
-      price,
-      business: req.user._id,
-    });
-    let savedCommodity = await newCommodity.save();
-    // 將商品ID加入商家的商品列表中
-    return res.send({ message: "新商品已經保存", savedCommodity });
-  } catch (e) {
-    res.status(500).send("無法創建商品");
   }
 });
 
@@ -164,6 +151,19 @@ router.delete("/delete/:id", async (req, res) => {
     } else {
       return res.status(403).send("只有此商家才可以刪除商品");
     }
+  } catch (e) {
+    return res.status(500).send(e);
+  }
+});
+
+//用商品id搜尋商品
+router.get("/:_id", async (req, res) => {
+  let { _id } = req.params;
+  try {
+    let commodityFound = await Commodity.findOne({ _id })
+      .populate("business", ["email"])
+      .exec();
+    return res.send(commodityFound);
   } catch (e) {
     return res.status(500).send(e);
   }
