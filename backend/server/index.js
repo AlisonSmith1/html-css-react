@@ -31,11 +31,10 @@ app.use(
   commodityRoute
 );
 
-// 提供靜態資源
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-// 所有路由都返回 index.html（支援 React Router）
-app.get("/", (req, res) => {
+// 用正則 /.*/ 來攔截所有 GET 請求
+app.get(/.*/, (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
 
