@@ -17,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/AlisonSmith1/secondHandClothesClient/issues"
   },
-  "homepage": "https://github.com/AlisonSmith1/secondHandClothesClient#readme"
+  "homepage": "https://github.com/AlisonSmith1/secondHandClothesClient#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
