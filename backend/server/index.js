@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const authRoute = require("./routes").auth;
-const commodityRoute = require("./routes").commodity;
+const authRoute = require("./routes/auth");
+const commodityRoute = require("./routes/commodity-route");
 const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
@@ -35,8 +35,28 @@ app.use(
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // 所有路由都返回 index.html（支援 React Router）
-app.get("/*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
+
+// 正確載入
+const { pathToRegexp } = require("path-to-regexp");
+
+const routes = [
+  "/",
+  "/api/user",
+  "/api/commodity",
+  "/api/commodity/:id",
+  "/api/commodity/findByName/:name",
+];
+
+routes.forEach((route) => {
+  try {
+    // 用 pathToRegexp 這個函式來嘗試轉字串成正則
+    pathToRegexp(route);
+  } catch (e) {
+    console.error("路由語法錯誤:", route, e.message);
+  }
 });
 
 //port 3000是react預設port

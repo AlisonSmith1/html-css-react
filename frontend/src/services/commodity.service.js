@@ -1,6 +1,5 @@
 import axios from "axios";
-const API_URL =
-  "https://html-css-react-production.up.railway.app/api/commodities";
+const API_URL = "http://localhost:3000/api/commodities";
 
 class CommodityService {
   post(title, description, price) {
@@ -22,14 +21,14 @@ class CommodityService {
   }
 
   //使用買家id，找到買家購買的商品
-  getEnrolledCommodity(id) {
+  getEnrolledCommodity(_id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.get(API_URL + "/customers/" + id, {
+    return axios.get(API_URL + "/customers/" + _id, {
       headers: {
         Authorization: token,
       },
@@ -37,14 +36,14 @@ class CommodityService {
   }
 
   //使用商家id，找到商家擁有的商品
-  get(id) {
+  get(_id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
     } else {
       token = "";
     }
-    return axios.get(API_URL + "/businesss/" + id, {
+    return axios.get(API_URL + "/businesss/" + _id, {
       headers: {
         Authorization: token,
       },
@@ -63,7 +62,7 @@ class CommodityService {
     });
   }
 
-  enroll(id) {
+  enroll(_id) {
     let token;
     if (localStorage.getItem("user")) {
       token = JSON.parse(localStorage.getItem("user")).token;
@@ -71,7 +70,7 @@ class CommodityService {
       token = "";
     }
     return axios.post(
-      API_URL + "/enroll/" + id,
+      API_URL + "/enroll/" + _id,
       {},
       { headers: { Authorization: token } }
     );
