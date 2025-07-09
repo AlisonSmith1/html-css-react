@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "locaklhost:8080/api/auth";
+const API_URL = "https://html-css-react-production.up.railway.app/api/auth";
 
 class AuthService {
   login(email, password) {

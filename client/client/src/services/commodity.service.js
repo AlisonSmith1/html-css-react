@@ -1,5 +1,6 @@
 import axios from "axios";
-const API_URL = "locaklhost:8080/api/commodities";
+const API_URL =
+  "https://html-css-react-production.up.railway.app/api/commodities";
 
 class CommodityService {
   post(title, description, price) {
