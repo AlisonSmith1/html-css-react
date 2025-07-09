@@ -20,7 +20,7 @@ mongoose
     console.log(e);
   });
 
-app.use(express.static(path.join(__dirname, "../../client")));
+app.use("/app", express.static(path.join(__dirname, "../client")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
