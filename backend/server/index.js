@@ -31,11 +31,10 @@ app.use(
   commodityRoute
 );
 
-// 放在所有 API 路由之後
-app.use(express.static(path.join(__dirname, "../../frontend/build")));
-
+const buildPath = path.join(__dirname, "build");
+app.use(express.static(buildPath));
 app.get(/^.*$/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/build/index.html"));
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 // 正確載入
