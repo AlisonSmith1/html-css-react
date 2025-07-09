@@ -35,7 +35,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // 所有路由都返回 index.html（支援 React Router）
-app.get("/*any", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
 

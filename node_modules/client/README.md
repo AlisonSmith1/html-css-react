@@ -1,2 +1,0 @@
-"# secondHandClothes" 
-"# secondHandClothesClient" 
