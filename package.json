@@ -7,7 +7,7 @@
     "backend"
   ],
   "scripts": {
-    "start": "node interview/index.js",
+    "start": "node interview/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
