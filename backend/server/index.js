@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: "../.env" });
 const authRoute = require("./routes").auth;
 const commodityRoute = require("./routes").commodity;
 const passport = require("passport");
