@@ -9,8 +9,6 @@ module.exports = (passport) => {
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
   opts.secretOrKey = process.env.JWT_SECRET;
 
-  console.log("secretOrKey", opts.secretOrKey);
-
   passport.use(
     new JwtStrategy(opts, async function (jwt_payload, done) {
       try {
