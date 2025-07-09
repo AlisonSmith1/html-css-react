@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://html-css-react-production.up.railway.app/api/user";
+const API_URL = "http://localhost:3000/api/user";
 // https://html-css-react-production.up.railway.app/
 // http://localhost:3000
 class AuthService {
